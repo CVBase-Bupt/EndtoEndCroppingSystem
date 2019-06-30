@@ -7,7 +7,8 @@ with warnings.catch_warnings():
     import keras
     from utils import *
     import numpy as np
-    from models import config, unet
+    from models import config
+    from models import model as M
     from PIL import Image, ImageDraw
     from keras.models import Model
     from keras.preprocessing.image import array_to_img
@@ -107,7 +108,7 @@ def main(argv=None):
         images = C.image_path
     else:
         images = sys.argv[1]
-    model = unet.SaliencyUnet(gamma=C.gamma, theta=C.theta, stage='test').BuildModel()
+    model = M.EndToEndModel(gamma=C.gamma, theta=C.theta, stage='test').BuildModel()
     model.load_weights(C.model, by_name=True)
     runn(model, images)
 

@@ -3,8 +3,8 @@ class Config:
 
     def __init__(self):
         self.model = 'weights/model.h5'
-        self.scale = 512
-        self.ratio = True
+        self.scale = 224
+        self.ratio = False
         self.gamma = 3.0
         self.theta = 0.01
 
