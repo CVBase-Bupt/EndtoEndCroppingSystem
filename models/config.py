@@ -2,14 +2,16 @@ import os
 class Config:
 
     def __init__(self):
-        self.model = 'weights/model.h5'
+
         self.scale = 224
         self.ratio = False
         self.gamma = 3.0
         self.theta = 0.01
 
-        self.draw = True
-        self.crop = True
+        self.model = self.set_model()
+
+        self.draw = False
+        self.crop = False
         self.log = True
 
         self.pic_extend = ('jpg', 'png', 'jpeg', 'bmp')
@@ -23,3 +25,9 @@ class Config:
         self.saliency_box_color = 'blue'
         self.aesthetics_box_color = 'yellow'
 
+    def set_model(self):
+        path_base = 'weights/model_'
+        path_ext = '.h5'
+        path_scale = str(self.scale)
+        path_ratio = 'square' if self.ratio else ''
+        return path_base + path_ratio + '_' + path_scale + path_ext
