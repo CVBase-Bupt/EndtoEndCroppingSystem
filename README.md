@@ -22,6 +22,7 @@ python demo.py [your image path]
 Before you run, please download our pre-trained models.We have released 6 models based on different scale (224,384,512) and ratio (square or not). If you want to use any of them, just:
 
 link:https://pan.baidu.com/s/1Bv_y5T2FrhoY241VvQdL8g
+
 password:la52
 
 Put the weight file under the dirctory ```weights```
@@ -31,8 +32,11 @@ Fix the config file ```models/config.py```, change the ```self.ratio``` and ```s
 ## Requirement
 
 Python
+
 keras(we use version 2.2.4)
+
 tensorflow 1.13.1
+
 opencv-python 2.4.9
 
 ## Performance
