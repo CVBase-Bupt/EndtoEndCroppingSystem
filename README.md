@@ -70,7 +70,7 @@ On FLMS:
  On FCD:
  
  
-    model    | IOU | BDE | 
+  |  model    | IOU | BDE | 
  |    :-:     | :-: | :-: | 
  | model__224 | 0.673 | 0.058 |
  | model__384 | 0.670 | 0.059 |
