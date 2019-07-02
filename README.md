@@ -21,9 +21,9 @@ python demo.py [your image path]
 ```
 Before you run, please download our pre-trained models.We have released 6 models based on different scale (224,384,512) and ratio (square or not). If you want to use any of them, just:
 
-link:https://pan.baidu.com/s/1Bv_y5T2FrhoY241VvQdL8g
 
-password:la52
+link：https://pan.baidu.com/s/11m4mNhUdFUlTThRXDL7XLA 
+password：vzwb 
 
 Put the weight file under the dirctory ```weights```
 
