@@ -74,9 +74,10 @@ def runn(model, images):
         offset = np.array(offset)
         saliency_box = normalization(w2 - 1, h2 - 1, saliency_box)
         aes_bbox = add_offset(w2 - 1, h2 - 1, saliency_box, offset)
-
+        
+        img_name = image_name.split('/')[-1]
         if C.log:
-            to_file = ' '.join([image_name] + [str(u) for u in saliency_box] + [str(y) for y in aes_bbox])
+            to_file = ' '.join([img_name] + [str(u) for u in saliency_box] + [str(y) for y in aes_bbox])
             result.append(to_file)
         if C.draw:
             if not os.path.isdir(C.box_out_path):
@@ -87,14 +88,14 @@ def runn(model, images):
             draw = ImageDraw.Draw(img_draw)
             draw.rectangle(saliency_box, None, C.saliency_box_color)
             draw.rectangle(aes_box, None, C.aesthetics_box_color)
-            img_draw.save(os.path.join(C.box_out_path, image_name.split('/')[-1]))
+            img_draw.save(os.path.join(C.box_out_path, img_name))
         if C.crop:
             if not os.path.isdir(C.crop_out_path):
                 os.makedirs(C.crop_out_path)
             aes_box = recover_from_normalization_with_order(w3 - 1, h3 - 1, aes_bbox)  # [int]
             img_crop = img_object.crop(aes_box)
            #img_crop = img_crop.resize((w3, h3))
-            img_crop.save(os.path.join(C.crop_out_path, image_name.split('/')[-1]))
+            img_crop.save(os.path.join(C.crop_out_path, img_name))
     if C.log:
         if not os.path.isdir(C.log_path):
             os.mkdir(C.log_path)
