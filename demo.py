@@ -109,7 +109,7 @@ def main(argv=None):
     else:
         images = sys.argv[1]
     model = M.EndToEndModel(gamma=C.gamma, theta=C.theta, stage='test').BuildModel()
-    model.load_weights(C.model, by_name=True)
+    model.load_weights(C.model)
     runn(model, images)
 
 if __name__ == "__main__":
